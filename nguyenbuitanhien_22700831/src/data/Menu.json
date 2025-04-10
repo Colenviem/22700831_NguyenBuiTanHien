@@ -1,0 +1,40 @@
+{
+    "menu": [
+        {
+            "menuName": "Dashboard",
+            "icon": "bx bxs-dashboard",
+            "path": "/",
+            "id": "1"
+        },
+        {
+            "menuName": "Projects",
+            "icon": "bx bx-folder",
+            "path": "/projects",
+            "id": "2"
+        },
+        {
+            "menuName": "Teams",
+            "icon": "bx bxl-microsoft-teams",
+            "path": "/teams",
+            "id": "3"
+        },
+        {
+            "menuName": "Analytics", 
+            "icon": "bx bx-pie-chart-alt-2",
+            "path": "/analytics",
+            "id": "4"
+        },
+        {
+            "menuName": "Messages",
+            "icon": "bx bx-message-detail",
+            "path": "/messages",
+            "id": "5"
+        },
+        {
+            "menuName": "Integrations",
+            "icon": "bx bx-expand-horizontal",
+            "path": "/integrations",
+            "id": "6"
+        }
+    ]
+}

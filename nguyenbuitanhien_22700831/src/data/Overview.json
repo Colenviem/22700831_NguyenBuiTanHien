@@ -1,0 +1,25 @@
+{
+    "overview": [
+        {
+          "title": "Turnover",
+          "value": "$ 92,405",
+          "percentageChange": "5.39 %",
+          "icon": "/src/assets/images/Button 1509.png",
+          "id": "1"
+        },
+        {
+          "title": "Profit",
+          "value": "$ 32,218",
+          "percentageChange": "5.39 %",
+          "icon": "/src/assets/images/Button 1529.png",
+          "id": "2"
+        },
+        {
+          "title": "New customer",
+          "value": "298",
+          "percentageChange": "6.84 %",
+          "icon": "/src/assets/images/Button 1530.png",
+          "id": "3"
+        }
+    ]
+}

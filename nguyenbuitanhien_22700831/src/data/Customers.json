@@ -1,0 +1,58 @@
+{
+  "customers": [
+    {
+      "avatar": "/src/assets/images/Avatar.png",
+      "customerName": "Elizabeth Lee ",
+      "companyName": "AvatarSystems",
+      "orderValue": "$359",
+      "orderDate": "01/06/2023",
+      "status": "New",
+      "id": "1"
+    },
+    {
+      "avatar": "/src/assets/images/Avatar (1).png",
+      "customerName": "Carlos Garcia",
+      "companyName": "SmoozeShift",
+      "orderValue": "$747",
+      "orderDate": "24/07/2023",
+      "status": "Completed",
+      "id": "2"
+    },
+    {
+      "avatar": "/src/assets/images/Avatar (2).png",
+      "customerName": "Elizabeth Bailey",
+      "companyName": "Prime Time Telecom",
+      "orderValue": "$564",
+      "orderDate": "08/08/2023",
+      "status": "New",
+      "id": "3"
+    },
+    {
+      "avatar": "/src/assets/images/Avatar (3).png",
+      "customerName": "Ryan Brown",
+      "companyName": "OmniTech Corporation",
+      "orderValue": "$541",
+      "orderDate": "31/08/2023",
+      "status": "Pending",
+      "id": "4"
+    },
+    {
+      "avatar": "/src/assets/images/Avatar (4).png",
+      "customerName": "Ryan Young",
+      "companyName": "DataStream Inc.",
+      "orderValue": "$769",
+      "orderDate": "10/03/2023",
+      "status": "Completed",
+      "id": "5"
+    },
+    {
+      "avatar": "/src/assets/images/Avatar (5).png",
+      "customerName": "Sophia Martinez",
+      "companyName": "TechFlow",
+      "orderValue": "$888",
+      "orderDate": "15/06/2023",
+      "status": "Pending",
+      "id": "6"
+    }
+  ]
+}
