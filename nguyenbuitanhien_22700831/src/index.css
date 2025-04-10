@@ -5,10 +5,11 @@
     height: 100vh;
     display: grid;
     grid-template-areas:
-        "menu header"
-        "menu content"
-        "menu content";
-    grid-template-columns: 1fr 3fr;
+        "sidebar header"
+        "sidebar content"
+        "sidebar content";
+    grid-template-columns: 288px auto;
+    grid-template-rows: 68px auto auto; 
     gap: 5px;
     background-color: #2196F3;
     padding: 5px;
@@ -24,10 +25,67 @@
     text-align: center;
 }
 
-.container > div.menu {
-    grid-area: menu;
+div.sidebar {
+    grid-area: sidebar;
 }
 
 .container > div.content {
     grid-area: content;
+}
+
+.sidebar{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    padding: 20px 16px !important;
+    gap: 24px;
+}
+
+.sidebar .image {
+    width: 100%; 
+    height: 36px;
+}
+
+.sidebar .menu{
+    width: 256px; 
+    display: flex; 
+    flex-direction: column; 
+    font-family: Manrope; /* Body */
+    font-size: 14px; 
+    line-height: 22px; 
+    font-weight: 400; 
+    opacity: 1; 
+    gap: 16px; 
+}
+
+.menu .menuItem{
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    color: #565E6CFF;
+    white-space: nowrap;
+    border-radius: 6px;
+}
+
+.menu .menuItem.active {
+    font-weight: 700;
+    background: #F44B87FF;
+    color: #FFFFFF;
+}
+
+.menu .menuItem.active .bx {
+    color: #FFFFFF; 
+}
+
+.menu .menuItem .bx{
+    font-size: 24px;  
+    color: #565E6CFF;
+}
+
+.sidebar .group {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
 }
