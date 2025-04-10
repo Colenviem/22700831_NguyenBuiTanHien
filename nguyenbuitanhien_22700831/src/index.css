@@ -10,9 +10,8 @@
         "sidebar content";
     grid-template-columns: 288px auto;
     grid-template-rows: 68px auto auto; 
-    gap: 5px;
-    background-color: #2196F3;
-    padding: 5px;
+    gap: 1px;
+    background-color: #fff;
 }
 
 .container > div {
@@ -39,6 +38,8 @@ div.sidebar {
     align-items: center;
     padding: 20px 16px !important;
     gap: 24px;
+    border-radius: 0px; 
+    box-shadow: 0px 0px 1px #171a1f26, 0px 0px 2px #171a1f33; /* shadow-xs */
 }
 
 .sidebar .image {
@@ -88,4 +89,104 @@ div.sidebar {
     display: flex;
     justify-content: center;
     margin-top: auto;
+}
+
+.content{
+    padding: 20px !important;
+    box-shadow: 0px 0px 1px #171a1f26, 0px 0px 2px #171a1f33; /* shadow-xs */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card-item {
+    width: 32%;
+    height: 152px;
+    padding: 20px;
+    background: #FEF0F5FF;
+    border-radius: 6px; 
+    box-shadow: 0px 8px 17px #f1f8fd3B, 0px 0px 2px #f1f8fd33;
+    position: relative;
+}
+
+.card-item:nth-child(2) {
+    background: #F0F6FFFF
+}
+
+.card-item:nth-child(3) {
+    background: #F1F8FDFF;
+}
+
+.card-item img{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.btn{
+    height: 36px; 
+    padding: 0 12px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-family: Manrope; 
+    font-size: 14px; 
+    line-height: 22px; 
+    font-weight: 400; 
+    color: #F44B87FF; /* primary-500 */
+    background: #FFFFFFFF; /* white */
+    opacity: 1; 
+    border-radius: 6px; /* border-m */
+    border-width: 1px; 
+    border-color: #F44B87FF; /* primary-500 */
+    border-style: solid; 
+    gap: 6px; 
+}
+
+.header{
+    padding: 16px 28px !important;
+    border-radius: 0px; 
+    box-shadow: 0px 0px 1px #171a1f26, 0px 0px 2px #171a1f33; /* shadow-xs */
+}
+
+.header .text {
+    font-family: Poppins; /* Heading */
+    font-size: 24px; 
+    line-height: 36px; 
+    font-weight: 700; 
+    color: #F44B87FF; /* primary-500 */
+}
+
+.header .textbox {
+    position: relative;
+    opacity: 1; 
+}
+
+.header .textbox input {
+    width: 322px; 
+    height: 36px; 
+    padding-left: 34px; 
+    padding-right: 12px; 
+    font-family: Manrope; 
+    font-size: 14px; 
+    line-height: 22px; 
+    font-weight: 400; 
+    background: #F3F4F6FF; /* neutral-200 */
+    border-radius: 6px; /* border-m */
+    border-width: 0px; 
+    outline: none; 
+}
+
+.header .textbox img {
+    position: absolute;
+    top: 9px;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    fill: #171A1FFF;
+}
+
+.header img{
+    width: 24px; 
+    height: 24px; 
 }

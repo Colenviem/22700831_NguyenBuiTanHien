@@ -2,6 +2,9 @@ import React, {useState} from 'react'
 import DataTable from 'react-data-table-component'
 import Pagination from "@mui/material/Pagination"
 import edit from '../assets/images/create.png'
+import addUser from '../assets/images/Move up.png'
+import exportIcon from '../assets/images/Download.png'
+import detailedReport from '../assets/images/File text 1.png'
 
 const DetailReport = ( {customers} ) => {
     const [page, setPage] = useState(1);
@@ -53,6 +56,25 @@ const DetailReport = ( {customers} ) => {
 
     return (
         <div>
+            <div className='flex justify-between items-center'>
+                <div className='flex items-center gap-2'>
+                    <img src={detailedReport} alt="" />
+                <h1 className='font-poppins text-xl leading-[30px] font-bold text-[#171A1FFF]'>Detailed report</h1>
+                </div>
+        
+                <div className="flex gap-3.5">
+                    <button className="btn btn-add-user">
+                        <img src={addUser} alt="" />
+                        Add user
+                    </button>
+                    
+                    <button className="btn btn-export">
+                        <img src={exportIcon} alt="" />
+                        Export
+                    </button>
+                </div>
+            </div>
+
             <DataTable 
                 columns={columns}
                 data={paginatedData}
