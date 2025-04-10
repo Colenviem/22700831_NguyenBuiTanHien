@@ -1,17 +1,43 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import DataTable from 'react-data-table-component'
 import Pagination from "@mui/material/Pagination"
 import edit from '../assets/images/create.png'
 import addUser from '../assets/images/Move up.png'
 import exportIcon from '../assets/images/Download.png'
 import detailedReport from '../assets/images/File text 1.png'
+import EditModal from './EditModal'
+import axios from 'axios'
 
-const DetailReport = ( {customers} ) => {
+const API = "http://localhost:3002/customers"
+
+const DetailReport = () => {
+    const [openEdit, setOpenEdit] = useState(false);
+    const [selectedRow, setSelectedRow] = useState(null);
     const [page, setPage] = useState(1);
+    const [customers, setCustomers] = useState([]);
     const rowsPerPage = 6;
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try{
+            const [customerRes] = await Promise.all([
+              axios.get(API),
+            ]);
+            setCustomers(customerRes.data);
+          }catch(error){
+            console.error("Error fetching data:", error)
+          }
+        }
+        fetchData();
+    },[])
  
     const handleChange = (event, value) => {
         setPage(value);
+    };
+
+    const handleEdit = (row) => {
+        setOpenEdit(true);
+        setSelectedRow(row);
     };
 
     const columns = [
@@ -41,8 +67,8 @@ const DetailReport = ( {customers} ) => {
             selector: row => row.status
         },
         {
-            cell: () => (
-                <button>
+            cell: (row) => (
+                <button type='button' onClick={() => handleEdit(row)}>
                     <img src={edit} alt={edit} />
                 </button>
             )
@@ -93,6 +119,12 @@ const DetailReport = ( {customers} ) => {
                     onChange={handleChange}
                 ></Pagination>
             </div>
+
+            <EditModal
+                isOpen={openEdit}
+                onClose={() => setOpenEdit(false)}
+                selectedRow={selectedRow}
+            />
         </div>
     )
 }

@@ -7,24 +7,20 @@ import './App.css'
 
 const API1 = "http://localhost:3000/menu"
 const API2 = "http://localhost:3001/overview"
-const API3 = "http://localhost:3002/customers"
 
 function App() {
   const [menu, setMenu] = useState([])
-  const [overview, setOverview] = useState([])                                    
-  const [customers, setCustomers] = useState([])
+  const [overview, setOverview] = useState([])    
 
   useEffect(() => {
     const fetchData = async () => {
       try{
-        const [menuRes, overviewRes, customersRes] = await Promise.all([
+        const [menuRes, overviewRes] = await Promise.all([
           axios.get(API1),
           axios.get(API2),
-          axios.get(API3),
         ]);
         setMenu(menuRes.data);
         setOverview(overviewRes.data);
-        setCustomers(customersRes.data);
       }catch(error){
         console.error("Error fetching data:", error)
       }
@@ -34,13 +30,12 @@ function App() {
 
   console.log("menu", menu)
   console.log("overview", overview)
-  console.log("customers", customers)
 
   return (
     <div className='flex justify-center'>
       <div className="container">
         <Header/>
-        <Content cardList={overview} customers={customers}/>
+        <Content cardList={overview}/>
         <Menu listMenu={menu} />
       </div>
     </div>
