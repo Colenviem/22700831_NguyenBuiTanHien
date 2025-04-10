@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useMemo} from 'react'
 import DataTable from 'react-data-table-component'
 import Pagination from "@mui/material/Pagination"
 import edit from '../assets/images/create.png'
@@ -6,6 +6,7 @@ import addUser from '../assets/images/Move up.png'
 import exportIcon from '../assets/images/Download.png'
 import detailedReport from '../assets/images/File text 1.png'
 import EditModal from './EditModal'
+import AddUserModal from './AddUserModal'
 import axios from 'axios'
 
 const API = "http://localhost:3002/customers"
@@ -13,6 +14,7 @@ const API = "http://localhost:3002/customers"
 const DetailReport = () => {
     const [openEdit, setOpenEdit] = useState(false);
     const [selectedRow, setSelectedRow] = useState(null);
+    const [isAddUserModalOpen, setAddUserModalOpen] = useState(false);
     const [page, setPage] = useState(1);
     const [customers, setCustomers] = useState([]);
     const rowsPerPage = 6;
@@ -75,10 +77,11 @@ const DetailReport = () => {
         }
     ]
 
-    const paginatedData = customers.slice(
-        (page - 1) * rowsPerPage,
-        page * rowsPerPage
-    );
+    const paginatedData = useMemo(() => {
+        console.log('customers');
+        console.log(customers.sort((a, b) => parseInt(b.id) - parseInt(a.id))); 
+        return customers.slice((page - 1) * rowsPerPage, page * rowsPerPage);
+    }, [customers, page]);
 
     return (
         <div>
@@ -89,7 +92,7 @@ const DetailReport = () => {
                 </div>
         
                 <div className="flex gap-3.5">
-                    <button className="btn btn-add-user">
+                    <button className="btn btn-add-user" onClick={() => setAddUserModalOpen(true)}>
                         <img src={addUser} alt="" />
                         Add user
                     </button>
@@ -124,6 +127,11 @@ const DetailReport = () => {
                 isOpen={openEdit}
                 onClose={() => setOpenEdit(false)}
                 selectedRow={selectedRow}
+            />
+
+            <AddUserModal
+                isOpen={isAddUserModalOpen}
+                onClose={() => setAddUserModalOpen(false)}
             />
         </div>
     )

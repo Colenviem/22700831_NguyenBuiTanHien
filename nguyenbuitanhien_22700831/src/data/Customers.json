@@ -53,6 +53,33 @@
       "orderDate": "15/06/2023",
       "status": "Pending",
       "id": "6"
+    },
+    {
+      "id": "7",
+      "avatar": "/src/assets/images/Avatar (2).png",
+      "customerName": "It me",
+      "companyName": "It me 12",
+      "orderValue": "$123213",
+      "orderDate": "29/04/2025",
+      "status": "Pending"
+    },
+    {
+      "id": "8",
+      "avatar": "/src/assets/images/Avatar (4).png",
+      "customerName": "qưqwq",
+      "companyName": "ưqwqw",
+      "orderValue": "$1212",
+      "orderDate": "30/04/2025",
+      "status": "Completed"
+    },
+    {
+      "id": "9",
+      "avatar": "/src/assets/images/Avatar (5).png",
+      "customerName": "Nguyễn Bùi Tấn Hiển",
+      "companyName": "IUH",
+      "orderValue": "$123",
+      "orderDate": "29/04/2025",
+      "status": "In-progress"
     }
   ]
 }
