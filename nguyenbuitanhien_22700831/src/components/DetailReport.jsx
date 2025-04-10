@@ -104,7 +104,7 @@ const DetailReport = () => {
                 </div>
             </div>
 
-            <DataTable 
+            <DataTable className='data-table'
                 columns={columns}
                 data={paginatedData}
                 selectableRows
@@ -120,6 +120,19 @@ const DetailReport = () => {
                     count={Math.ceil(customers.length / rowsPerPage)}
                     page={page}
                     onChange={handleChange}
+                    sx={{
+                        '& .MuiPaginationItem-root': {
+                          color: '#E91E63',             
+                          borderColor: '#E91E63',       
+                        },
+                        '& .Mui-selected': {
+                          backgroundColor: '#E91E63',   
+                          color: 'white',
+                        },
+                        '& .MuiPaginationItem-root:hover': {
+                          backgroundColor: '#F8BBD0',   
+                        }
+                    }}
                 ></Pagination>
             </div>
 
