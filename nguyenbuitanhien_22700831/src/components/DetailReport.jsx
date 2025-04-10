@@ -1,33 +1,43 @@
 import React from 'react'
+import DataTable from 'react-data-table-component'
 
 const DetailReport = ( {customers} ) => {
+    const columns = [
+        {
+            name: "CUSTOMER NAME",
+            cell: (row) => (
+                <div className="flex items-center gap-3">
+                <img src={row.avatar} alt="avatar" className="w-10 h-10 rounded-full" />
+                <span>{row.customerName}</span>
+                </div>
+            )
+        },
+        {
+            name: "COMPANY",
+            selector: row => row.companyName
+        },
+        {
+            name: "ORDER VALUE",
+            selector: row => row.orderValue
+        },
+        {
+            name: "ORDER DATE",
+            selector: row => row.orderDate
+        },
+        {
+            name: "STATUS",
+            selector: row => row.status
+        }
+    ]
+
     return (
         <div>
-            <table className='w-[100%]'>
-                <thead>
-                    <tr>
-                        <th className="py-2 px-4 border">CUSTOMER NAME</th>
-                        <th className="py-2 px-4 border">COMPANY</th>
-                        <th className="py-2 px-4 border">ORDER VALUE</th>
-                        <th className="py-2 px-4 border">ORDER DATE</th>
-                        <th className="py-2 px-4 border">STATUS</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {customers.map((customer) => {
-                        return (
-                            <tr key={customer.id}>
-                                <td className="py-2 px-4 border">{customer.customerName}</td>
-                                <td className="py-2 px-4 border">{customer.company}</td>
-                                <td className="py-2 px-4 border">{customer.orderValue}</td>
-                                <td className="py-2 px-4 border">{customer.orderDate}</td>
-                                <td className="py-2 px-4 border">{customer.status}</td>
-                            </tr>
-                        )    
-                    })}
-                </tbody>
-            </table>
+            <DataTable 
+                columns={columns}
+                data={customers}
+                selectableRows
+            >  
+            </DataTable>
         </div>
     )
 }
