@@ -1,7 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import DataTable from 'react-data-table-component'
+import Pagination from "@mui/material/Pagination"
+import edit from '../assets/images/create.png'
 
 const DetailReport = ( {customers} ) => {
+    const [page, setPage] = useState(1);
+    const rowsPerPage = 6;
+ 
+    const handleChange = (event, value) => {
+        setPage(value);
+    };
+
     const columns = [
         {
             name: "CUSTOMER NAME",
@@ -27,17 +36,41 @@ const DetailReport = ( {customers} ) => {
         {
             name: "STATUS",
             selector: row => row.status
+        },
+        {
+            cell: () => (
+                <button>
+                    <img src={edit} alt={edit} />
+                </button>
+            )
         }
     ]
+
+    const paginatedData = customers.slice(
+        (page - 1) * rowsPerPage,
+        page * rowsPerPage
+    );
 
     return (
         <div>
             <DataTable 
                 columns={columns}
-                data={customers}
+                data={paginatedData}
                 selectableRows
+                highlightOnHover
+                responsive
             >  
             </DataTable>
+
+            <div className='flex justify-between items-center mt-5'>
+                <p><span>{customers.length}</span> result</p>
+        
+                <Pagination
+                    count={Math.ceil(customers.length / rowsPerPage)}
+                    page={page}
+                    onChange={handleChange}
+                ></Pagination>
+            </div>
         </div>
     )
 }
